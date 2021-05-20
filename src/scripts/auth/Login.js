@@ -1,4 +1,4 @@
-import { getUsers } from "../data/provider.js"
+import { getUsers, fetchUsers } from "../data/provider.js"
 
 
 document.addEventListener("click", clickEvent => {
@@ -39,5 +39,3 @@ export const LoginForm = () => {
         </div>
     `
 }
-
-console.log()

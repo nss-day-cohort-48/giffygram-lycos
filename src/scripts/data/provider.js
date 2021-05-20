@@ -1,4 +1,4 @@
-const apiURL = "http://giffyapi.nss.team/";
+const apiURL = "http://giffyapi.nss.team"; 
 const applicationElement = document.querySelector(".giffygram");
 
 const applicationState = {
@@ -32,23 +32,25 @@ export const getMessages = () => {
   return [...applicationState.messages];
 };
 
-// export const SetCurrentUser = () => {
-//   const currentUserId = parseInt(localStorage.getItem('gg-user'))
-//   const users = getUsers()
-//   for (user of users) {
-//   if (currentUserId === user.id) {
-//   applicationState.currentUser = user
-//   }}
-// }
+//Tom's experiement on setting the current user.
 
-// export const getCurrentUser = () => {
-//   return { ...applicationState.currentUser };
-// };
-
-// Fetch Functions:
-
-export const fetchUsers = () => {
-  return fetch(`${apiURL}/users`)
+export const SetCurrentUser = () => {
+  const currentUserId = parseInt(localStorage.getItem('gg-user'))
+  const users = getUsers()
+  for (user of users) {
+    if (user.id === currentUserId) {
+      applicationState.currentUser = user
+    }}
+  }
+  
+  export const getCurrentUser = () => {
+    return { ...applicationState.currentUser };
+  };
+  
+  // Fetch Functions:
+  
+  export const fetchUsers = () => {
+    return fetch(`${apiURL}/users`)
     .then((res) => res.json())
     .then((usersArray) => {
       applicationState.users = usersArray;
