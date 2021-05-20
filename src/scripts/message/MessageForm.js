@@ -1,7 +1,7 @@
 
 
 
-export const DirectMessageForm = () => {
+export const MessageForm = () => {
     return `
         <h2>Direct Message</h2>
         <fieldset>

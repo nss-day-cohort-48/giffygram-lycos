@@ -1,4 +1,5 @@
 import { NavBar } from "./nav/NavBar.js";
+import { MessageForm } from "./message/MessageForm.js";
 // import { Footer } from "./nav/Footer.js";
 
 export const GiffyGram = () => {
@@ -10,6 +11,10 @@ export const GiffyGram = () => {
     
     <div class="navigation">
         ${NavBar()}
+    </div>;
+
+    <div class ="messageBox">
+        ${MessageForm()}
     </div>`;
 
   // <footer class="footer">
