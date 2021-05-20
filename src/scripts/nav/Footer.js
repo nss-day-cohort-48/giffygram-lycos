@@ -1,4 +1,4 @@
-import { getUsers, getLikes } from provider.js
+import { getUsers, getLikes, getPosts, getCurrentUser } from provider.js
 
 const yearsDropdown = () => {
     return `
@@ -28,13 +28,15 @@ const UserDropDown = () => {
 
 //need to figure out this is made specific to the User that is logged in.
 const filterFavorites = () => {
+    let currentUser = getCurrentUser()
     const likes = getLikes()
     for (const like of likes) {
-        if (like = true) {
+        if (like.userId = currentUser.id) {
             return like
         }
     }
 }
+//somehwere else we need a function that will display all posts that have a like.postId = post.id
 
 export const Footer = () => {
 
