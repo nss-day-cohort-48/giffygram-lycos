@@ -1,4 +1,4 @@
-const applicationElement = documnet.querySelector(".giffygram");
+const applicationElement = document.querySelector(".giffygram");
 
 export const NavBar = () => {
   return /*html*/ `
