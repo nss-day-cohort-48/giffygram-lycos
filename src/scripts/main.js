@@ -2,7 +2,7 @@ import { GiffyGram } from "./GiffyGram.js";
 import { LoginForm } from "./auth/Login.js";
 import { NavBar } from "./nav/NavBar.js";
 
-const applicationElement = document.querySelector(".giffygram");
+const applicationElement = document.querySelector(".giffygram")
 
 export const renderApp = () => {
   const user = parseInt(localStorage.getItem("gg_user"));
@@ -21,3 +21,5 @@ export const renderApp = () => {
     // }
   }
 };
+
+// renderApp()

@@ -1,4 +1,4 @@
-const apiURL = "http://localhost:8088";
+const apiURL = "http://giffyapi.nss.team/";
 const applicationElement = document.querySelector(".giffygram");
 
 const applicationState = {
@@ -32,9 +32,18 @@ export const getMessages = () => {
   return [...applicationState.messages];
 };
 
-export const getCurrentUser = () => {
-  return { ...applicationState.currentUser };
-};
+// export const SetCurrentUser = () => {
+//   const currentUserId = parseInt(localStorage.getItem('gg-user'))
+//   const users = getUsers()
+//   for (user of users) {
+//   if (currentUserId === user.id) {
+//   applicationState.currentUser = user
+//   }}
+// }
+
+// export const getCurrentUser = () => {
+//   return { ...applicationState.currentUser };
+// };
 
 // Fetch Functions:
 
