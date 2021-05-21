@@ -4,10 +4,10 @@ import { MessageForm } from "./message/MessageForm.js";
 // import { Footer } from "./nav/Footer.js";
 
 export const GiffyGram = () => {
-  // Show main main UI
-  return /*html*/ `
+    // Show main main UI
+    return /*html*/ `
     <header class="header">
-        <h1 class="title"></h1>
+        <h1 class="navbar"></h1>
         <div class="navigation">
             ${NavBar()}
         </div>;
@@ -17,9 +17,9 @@ export const GiffyGram = () => {
     <div class="feed">
         ${PostList()}
     </div>;
-    `;
 
-  // <footer class="footer">
-  //     ${Footer()}
-  // </footer>;
+
+    <footer class="footer">
+        ${Footer()}
+    </footer>;`
 };

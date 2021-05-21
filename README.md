@@ -2,6 +2,14 @@
 
 For this project, you will be building a web application that lets people post their favorite gifs. Each post can be favorited by other users, and deleted by the original author. Users can also send direct messages to each other, and be notified when they have messages.
 
+## ERD
+
+https://dbdiagram.io/d/60a2c309b29a09603d154316
+
+## Wireframe
+
+https://www.figma.com/file/RL0hmbpWDpIAjEO9IiGEzF/Giffy-Gram-Lycos-wireframe?node-id=0%3A1
+
 ### Starting the API
 
 Open a terminal window and go to the `giffygram` directory.
@@ -26,10 +34,10 @@ Use the assets that you created during the deconstruction phase to construct you
 1. Once your team defines all of the features that need to be built for the application, create an Issue for each one.
 1. Create a project for your repository.
 1. Create the following columns in your project
-    * Backlog
-    * Doing
-    * Ready to test
-    * Done
+   - Backlog
+   - Doing
+   - Ready to test
+   - Done
 1. Add each issue to your Backlog column.
 
 Each teammate then drags one issue from the Backlog to the Doing column, and assigns themselves to the issue. You are now accountable for making sure that issue gets done.
@@ -40,7 +48,7 @@ You and all of your teammates **share the responsibility** of getting it done. N
 
 Create a file named `PULL_REQUEST_TEMPLATE.md` in your repository and place the following content into it. Every new PR you create will have this structure automatically.
 
-```text
+````text
 #### Changes Made
 1. Added file `filename` to `directoryname` directory.
 1. Modified file `filename` to include `functionalityname` and functionality.
@@ -58,4 +66,4 @@ Create a file named `PULL_REQUEST_TEMPLATE.md` in your repository and place the 
 4. View code file.
     > Confirm file modifications are present as indicated above.
     > Confirm no unused code or extraneous comments exist.
-```
+````
