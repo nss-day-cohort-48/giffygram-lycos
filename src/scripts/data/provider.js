@@ -1,7 +1,7 @@
 const apiURL = "http://localhost:3000";
 const applicationElement = document.querySelector(".giffygram");
 
-export const applicationState = {
+const applicationState = {
   currentUser: {},
   feed: {
     chosenUser: null,
@@ -49,19 +49,6 @@ export const fetchLikes = () => {
     });
 };
 
-//Set functions:
-export const setCurrentUser = () => {
-  const users = getUsers()
-  let currentUserId = localStorage.getItem("gg_user")
-  for (const user of users) {
-    if (user.id === currentUserId) {
-      applicationState.currentUser = user
-    }
-  }
-}
-
-//Set Current User:
-
 
 // Getter Functions:
 
@@ -101,4 +88,17 @@ export const sendPost = (userPost) => {
     .then(() => {
       mainContainer.dispatchEvent(new CustomEvent("stateChanged"));
     });
+};
+
+
+// Set functions
+
+export const setCurrentUser = () => {
+  const users = getUsers();
+  let currentUserId = localStorage.getItem("gg_user");
+  for (const user of users) {
+    if (user.id === currentUserId) {
+      applicationState.currentUser = user;
+    }
+  }
 };
