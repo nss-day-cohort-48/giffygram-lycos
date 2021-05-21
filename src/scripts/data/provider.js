@@ -14,27 +14,6 @@ const applicationState = {
   messages: [],
 };
 
-// Getter Functions:
-
-export const getUsers = () => {
-  return [...applicationState.users];
-};
-
-export const getPosts = () => {
-  return [...applicationState.posts];
-};
-
-export const getLikes = () => {
-  return [...applicationState.likes];
-};
-
-export const getMessages = () => {
-  return [...applicationState.messages];
-};
-
-export const getCurrentUser = () => {
-  return { ...applicationState.currentUser };
-};
 
 // Fetch Functions:
 
@@ -70,7 +49,31 @@ export const fetchLikes = () => {
     });
 };
 
-//
+
+// Getter Functions:
+
+export const getUsers = () => {
+  return [...applicationState.users];
+};
+
+export const getPosts = () => {
+  return [...applicationState.posts];
+};
+
+export const getLikes = () => {
+  return [...applicationState.likes];
+};
+
+export const getMessages = () => {
+  return [...applicationState.messages];
+};
+
+export const getCurrentUser = () => {
+  return { ...applicationState.currentUser };
+};
+
+
+// some export functions
 
 export const sendPost = (userPost) => {
   const fetchOptions = {
@@ -86,6 +89,9 @@ export const sendPost = (userPost) => {
       mainContainer.dispatchEvent(new CustomEvent("stateChanged"));
     });
 };
+
+
+// Set functions
 
 export const setCurrentUser = () => {
   const users = getUsers();

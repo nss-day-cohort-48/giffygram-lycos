@@ -1,6 +1,8 @@
 import { PostList } from "./feed/PostList.js";
 import { NavBar } from "./nav/NavBar.js";
-// import { Footer } from "./nav/Footer.js";
+import { MessageForm } from "./message/MessageForm.js";
+import { Footer } from "./nav/Footer.js";
+import { PostCreator } from "./feed/PostCreator.js";
 
 export const GiffyGram = () => {
   // Show main main UI
@@ -9,15 +11,19 @@ export const GiffyGram = () => {
         <div class="navigation">
             ${NavBar()}
         </div>
+        <div>
+            ${MessageForm()}
+        </div>
     </header>
     
 
     <div class="feed">
+      ${PostCreator()}
         ${PostList()}
-    </div>
-    `;
+    </div>;
 
-  // <footer class="footer">
-  //     ${Footer()}
-  // </footer>;
+
+    <footer class="footer">
+        ${Footer()}
+    </footer>;`;
 };

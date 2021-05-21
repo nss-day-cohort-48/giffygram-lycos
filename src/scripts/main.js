@@ -27,3 +27,4 @@ renderApp();
 applicationElement.addEventListener("stateChanged", (customEvent) => {
   renderApp();
 });
+
