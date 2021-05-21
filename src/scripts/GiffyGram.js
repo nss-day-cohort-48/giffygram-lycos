@@ -7,7 +7,7 @@ export const GiffyGram = () => {
   // Show main main UI
   return /*html*/ `
     <header class="header">
-        <h1 class="title">Giffygram</h1>
+        <h1 class="title"></h1>
         <div class="navigation">
             ${NavBar()}
         </div>;
