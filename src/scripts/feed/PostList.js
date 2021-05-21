@@ -1,4 +1,6 @@
-import { getPosts, getUsers } from "../data/provider.js";
+import { fetchPosts, getPosts, getUsers } from "../data/provider.js";
+
+fetchPosts();
 
 export const PostList = () => {
   const posts = getPosts();
