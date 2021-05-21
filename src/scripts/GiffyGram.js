@@ -1,3 +1,4 @@
+import { PostList } from "./feed/PostList.js";
 import { NavBar } from "./nav/NavBar.js";
 // import { Footer } from "./nav/Footer.js";
 
@@ -6,11 +7,16 @@ export const GiffyGram = () => {
   return /*html*/ `
     <header class="header">
         <h1 class="title">Giffygram</h1>
+        <div class="navigation">
+            ${NavBar()}
+        </div>;
     </header>
     
-    <div class="navigation">
-        ${NavBar()}
-    </div>`;
+
+    <div class="feed">
+        ${PostList()}
+    </div>;
+    `;
 
   // <footer class="footer">
   //     ${Footer()}

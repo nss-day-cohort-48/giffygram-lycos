@@ -13,14 +13,6 @@ export const renderApp = () => {
     applicationElement.innerHTML = GiffyGram();
   } else {
     applicationElement.innerHTML = LoginForm();
-    // } if else {
-    //   applicationElement.innerHTML = NavBar();
-    // } else {
-    //    applicationElement.innerHTML = Footer();
-    //  }
-    // else {
-    //   applicationElement.innerHTML = Footer();
-    // }
   }
 };
 
