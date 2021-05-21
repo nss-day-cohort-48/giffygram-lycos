@@ -1,4 +1,4 @@
-const apiURL = "http://giffyapi.nss.team";
+const apiURL = "http://localhost:3000";
 const applicationElement = document.querySelector(".giffygram");
 
 const applicationState = {
