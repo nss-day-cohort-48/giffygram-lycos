@@ -6,16 +6,15 @@ export const GiffyGram = () => {
   // Show main main UI
   return /*html*/ `
     <header class="header">
-        <h1 class="navbar"></h1>
         <div class="navigation">
             ${NavBar()}
-        </div>;
+        </div>
     </header>
     
 
     <div class="feed">
         ${PostList()}
-    </div>;
+    </div>
     `;
 
   // <footer class="footer">
