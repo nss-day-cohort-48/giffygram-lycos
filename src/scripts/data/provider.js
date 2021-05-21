@@ -1,7 +1,7 @@
-const apiURL = "http://giffyapi.nss.team";
+const apiURL = "http://localhost:3000";
 const applicationElement = document.querySelector(".giffygram");
 
-const applicationState = {
+export const applicationState = {
   currentUser: {},
   feed: {
     chosenUser: null,
@@ -14,27 +14,6 @@ const applicationState = {
   messages: [],
 };
 
-// Getter Functions:
-
-export const getUsers = () => {
-  return [...applicationState.users];
-};
-
-export const getPosts = () => {
-  return [...applicationState.posts];
-};
-
-export const getLikes = () => {
-  return [...applicationState.likes];
-};
-
-export const getMessages = () => {
-  return [...applicationState.messages];
-};
-
-export const getCurrentUser = () => {
-  return { ...applicationState.currentUser };
-};
 
 // Fetch Functions:
 
@@ -70,7 +49,44 @@ export const fetchLikes = () => {
     });
 };
 
-//
+//Set functions:
+export const setCurrentUser = () => {
+  const users = getUsers()
+  let currentUserId = localStorage.getItem("gg_user")
+  for (const user of users) {
+    if (user.id === currentUserId) {
+      applicationState.currentUser = user
+    }
+  }
+}
+
+//Set Current User:
+
+
+// Getter Functions:
+
+export const getUsers = () => {
+  return [...applicationState.users];
+};
+
+export const getPosts = () => {
+  return [...applicationState.posts];
+};
+
+export const getLikes = () => {
+  return [...applicationState.likes];
+};
+
+export const getMessages = () => {
+  return [...applicationState.messages];
+};
+
+export const getCurrentUser = () => {
+  return { ...applicationState.currentUser };
+};
+
+
+// some export functions
 
 export const sendPost = (userPost) => {
   const fetchOptions = {
