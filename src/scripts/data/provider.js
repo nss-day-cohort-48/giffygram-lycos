@@ -86,3 +86,13 @@ export const sendPost = (userPost) => {
       mainContainer.dispatchEvent(new CustomEvent("stateChanged"));
     });
 };
+
+export const setCurrentUser = () => {
+  const users = getUsers();
+  let currentUserId = localStorage.getItem("gg_user");
+  for (const user of users) {
+    if (user.id === currentUserId) {
+      applicationState.currentUser = user;
+    }
+  }
+};
