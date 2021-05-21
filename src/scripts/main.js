@@ -6,19 +6,21 @@ import { fetchUsers, fetchMessages, fetchLikes, fetchPosts, getUsers } from "./d
 const applicationElement = document.querySelector(".giffygram");
 
 export const renderApp = () => {
-  fetchUsers()
-  const user = parseInt(localStorage.getItem("gg_user"));
+  fetchUsers().then(() => {
+    let users = getUsers()
+    console.log(users) 
+    const user = parseInt(localStorage.getItem("gg_user"));
 
-  if (user) {
-    applicationElement.innerHTML = GiffyGram();
-  } else {
-    applicationElement.innerHTML = LoginForm();
-  }
+  
+    if (user) {
+      applicationElement.innerHTML = GiffyGram();
+    } else {
+      applicationElement.innerHTML = LoginForm();
+    }
+  })
 };
 
 renderApp();
-let users = getUsers()
-console.log(users)
 
 applicationElement.addEventListener("stateChanged", (customEvent) => {
   renderApp();

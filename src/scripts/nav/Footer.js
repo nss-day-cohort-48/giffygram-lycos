@@ -18,14 +18,13 @@ const yearsDropdown = () => {
 
 const UserDropDown = () => {
     // Our getUsers is not working yet.
-    // const users = getUsers()
+    const users = getUsers()
 
     // // This array is temporary data to test.
-    const users = [
-        {id: 1, name: "Bill"},
-        {id: 2, name: "Bob"},
-        {id: 3, name: "Bettie"}
-    ]
+    // const users = [
+    //     {id: 1, name: "Bill"},
+    //     {id: 2, name: "Bob"},
+    //     {id: 3, name: "Bettie"}
     let html = "<div class='footer__item footer__postsByUser'>"
     html += "Posts by user <select id='userSelection'>"
     html += users.map((user) => {
