@@ -21,12 +21,3 @@ export const NavBar = () => {
         </nav>
     `;
 };
-
-document.addEventListener("click", (clickEvent) => {
-  if (clickEvent.target.id === "logoutButton") {
-    localStorage.clear();
-    document
-      .querySelector(".giffygram")
-      .dispatchEvent(new CustomEvent("stateChanged"));
-  }
-});

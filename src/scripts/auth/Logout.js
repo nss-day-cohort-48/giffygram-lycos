@@ -8,6 +8,6 @@ document.addEventListener("click", (clickEvent) => {
     document
       .querySelector(".giffygram")
       .dispatchEvent(new CustomEvent("stateChanged"));
-    console.log("state changed event dispatched");
+    //console.log("state changed event dispatched");
   }
 });

@@ -2,6 +2,38 @@
 
 For this project, you will be building a web application that lets people post their favorite gifs. Each post can be favorited by other users, and deleted by the original author. Users can also send direct messages to each other, and be notified when they have messages.
 
+    ..................................................
+    :                    ......                      :
+    :                 .:||||||||:.                   :
+    :                /            \                  :
+    :               (   o      o   )                 :
+    :-------@@@@----------:  :----------@@@@---------:
+    :                     `--'                       :
+    :                                                :
+    :                                                :
+    :            T O M   S A Y S   H I !             :
+    :................................................:
+    :                    ......                      :
+    :                 .:||||||||:.                   :
+    :                /            \                  :
+    :               (   o      o   )                 :
+    :-------@@@@----------:  :----------@@@@---------:
+    :                     `--'                       :
+    :                                                :
+    :                                                :
+    :        L I N C O L N  S A Y S   H I !          :
+    ..................................................
+    :                    ......                      :
+    :                 .:||||||||:.                   :
+    :                /            \                  :
+    :               (   o      o   )                 :
+    :-------@@@@----------:  :----------@@@@---------:
+    :                     `--'                       :
+    :                                                :
+    :                                                :
+    :         R O G E R   S A Y S   H I !            :
+    :................................................:
+
 ## ERD
 
 https://dbdiagram.io/d/60a2c309b29a09603d154316

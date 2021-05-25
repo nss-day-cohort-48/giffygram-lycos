@@ -7,14 +7,13 @@ const applicationState = {
     chosenUser: null,
     displayFavorites: false,
     displayMessages: false,
-    yearChosen: 0
+    yearChosen: 0,
   },
   users: [],
   posts: [],
   likes: [],
   messages: [],
 };
-
 
 // Fetch Functions:
 
@@ -50,7 +49,6 @@ export const fetchLikes = () => {
     });
 };
 
-
 // Getter Functions:
 
 export const getUsers = () => {
@@ -59,14 +57,14 @@ export const getUsers = () => {
 
 export const getPosts = () => {
   let gifPosts = [...applicationState.posts];
-  if(applicationState.feed.yearChosen > 0) {
-    const yearArray = gifPosts.filter((post)=>{
-      post.timestamp > applicationState.feed.yearChosen
-    })
-    debugger
-    return yearArray
+  if (applicationState.feed.yearChosen > 0) {
+    const yearArray = gifPosts.filter((post) => {
+      post.timestamp > applicationState.feed.yearChosen;
+    });
+    debugger;
+    return yearArray;
   } else {
-    return gifPosts
+    return gifPosts;
   }
 };
 
@@ -82,9 +80,7 @@ export const getCurrentUser = () => {
   return { ...applicationState.currentUser };
 };
 
-
-
-// some export functions
+// POST functions
 
 export const sendPost = (userPost) => {
   const fetchOptions = {
@@ -101,6 +97,19 @@ export const sendPost = (userPost) => {
     });
 };
 
+export const registerNewUser = (userObject) => {
+  return fetch(`${apiURL}/users}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userObject),
+  })
+    .then((response) => response.json())
+    .then(() => {
+      mainContainer.dispatchEvent(new CustomEvent("stateChanged"));
+    });
+};
 
 // Set functions
 
@@ -115,18 +124,18 @@ export const setCurrentUser = () => {
 };
 
 export const setChosenUser = (id) => {
-  const users = getUsers()
+  const users = getUsers();
   for (const user of users) {
-    if (user.id = id) {
-      applicationState.feed.chosenUser = user
+    if ((user.id = id)) {
+      applicationState.feed.chosenUser = user;
     }
   }
-}
+};
 
 export const setChosenYear = (timestamp) => {
-  applicationState.feed.yearChosen = timestamp
-  applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
-}
+  applicationState.feed.yearChosen = timestamp;
+  applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+};
 
 // Let posts = getPosts()
 // Let postsByUserArray = []
@@ -141,27 +150,28 @@ export const setChosenYear = (timestamp) => {
 // filter functions
 
 export const filterFavorites = () => {
-  let likedPosts = []
-  const currentUserId = localStorage.getItem("gg_user")
-  const likes = getLikes()
+  let likedPosts = [];
+  const currentUserId = localStorage.getItem("gg_user");
+  const likes = getLikes();
   for (const like of likes) {
-    if (like.userId = currentUserId) {
-      likedPosts.push(like)
+    if ((like.userId = currentUserId)) {
+      likedPosts.push(like);
     }
-  } return likedPosts
-}
+  }
+  return likedPosts;
+};
 
 export const filterByYear = (annualTimestamp) => {
-  const posts = getPosts()
+  const posts = getPosts();
   let postsSinceYear = posts.filter((post) => {
     if (post.timestamp >= annualTimestamp) {
-      return post
-    } 
-  })
-  return postsSinceYear
-}
+      return post;
+    }
+  });
+  return postsSinceYear;
+};
 
 export const makeApplicationStatePosts = (arrayOfPosts) => {
-  applicationState.posts = arrayOfPosts
-  applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
-}
+  applicationState.posts = arrayOfPosts;
+  applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+};
