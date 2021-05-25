@@ -25,5 +25,6 @@ export const GiffyGram = () => {
 
     <footer class="footer">
         ${Footer()}
-    </footer>;`;
+    </footer>;`
+    
 };
