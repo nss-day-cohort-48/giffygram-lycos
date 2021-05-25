@@ -1,4 +1,4 @@
-import { getUsers, getLikes, fetchLikes, fetchUsers} from "/scripts/data/provider.js";
+import { getUsers, getLikes, fetchLikes, fetchUsers} from "../data/provider.js";
 // import { fgetCurrentUser  } from "./data/provider.js";
 
 
