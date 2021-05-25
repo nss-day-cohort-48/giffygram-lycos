@@ -1,10 +1,10 @@
 import { fetchPosts, getPosts, getUsers } from "../data/provider.js";
 
-fetchPosts();
-
 export const PostList = () => {
-  const posts = getPosts();
+  let posts = getPosts(); 
   const likes = getUsers();
+
+  //in here is where we want to decide about filtering
 
   // See ERD for class naming and variable naming
   let html = /*html*/ `
