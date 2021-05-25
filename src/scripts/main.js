@@ -1,6 +1,6 @@
 import { GiffyGram } from "./GiffyGram.js";
 import { LoginForm } from "./auth/Login.js";
-import { RegisterForm } from "./auth/Register.js";
+// import { RegisterForm } from "./auth/Register.js";
 import {
   fetchUsers,
   fetchPosts,
@@ -14,7 +14,7 @@ const applicationElement = document.querySelector(".giffygram");
 
 export const renderApp = () => {
   const user = parseInt(localStorage.getItem("gg_user"));
-  const newUser = parseInt(localStorage.getItem("gg_newUser"));
+  // const newUser = parseInt(localStorage.getItem("gg_newUser"));
   fetchUsers()
     .then(fetchPosts)
     .then(fetchLikes)
@@ -23,8 +23,8 @@ export const renderApp = () => {
       console.log("renderApp invoked");
       if (user) {
         applicationElement.innerHTML = GiffyGram();
-      } else if (newUser) {
-        applicationElement.innerHTML = RegisterForm();
+        // } else if (newUser) {
+        //   applicationElement.innerHTML = RegisterForm();
       } else {
         applicationElement.innerHTML = LoginForm();
       }
