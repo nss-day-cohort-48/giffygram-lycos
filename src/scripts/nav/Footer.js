@@ -27,7 +27,7 @@ document.addEventListener(
 )
 
 const yearsDropdown = () => {
-    return `
+  return `
     <div class="footer__item">
     Post since <select id="yearSelection">
     <option name="yearSelection" value="allYears">Display All</option>
@@ -38,8 +38,8 @@ const yearsDropdown = () => {
     <option name="yearSelection" value="2017">2017</option>
     </select>
     </div> 
-    `}
-
+    `;
+};
 
 document.addEventListener(
     "change",
@@ -72,25 +72,35 @@ const UserDropDown = () => {
 // }
 
 //need to figure out this is made specific to the User that is logged in.
-
+const filterFavorites = () => {
+  let likedPosts = [];
+  const currentUserId = localStorage.getItem("gg_user");
+  console.log(currentUserId);
+  const likes = getLikes();
+  for (const like of likes) {
+    if ((like.userId = currentUserId)) {
+      likedPosts.push(like);
+    }
+  }
+  return likedPosts;
+};
 
 const likesCheckbox = () => {
-    return `
+  return `
 <div class="footer__item likes__checkbox">
 <label for="likesCheckbox">Show only favorites:</label>
 <input type="checkbox" id="likesCheckbox">
 </div> 
-`
-}
+`;
+};
 //somehwere else we need a function that will display all posts that are in the likedPosts array.
 
 export const Footer = () => {
+  let html = yearsDropdown();
 
-    let html = yearsDropdown()
+  html += UserDropDown();
 
-    html += UserDropDown()
+  html += likesCheckbox();
 
-    html += likesCheckbox()
-
-    return html
-}
+  return html;
+};
