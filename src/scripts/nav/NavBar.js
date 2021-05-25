@@ -16,8 +16,17 @@ export const NavBar = () => {
                 <img id="directMessageIcon" src="./images/fountain-pen.svg" alt="Direct message" />
             </div>
             <div class="navigation__item navigation__logout">
-                <button id="logout" class="fakeLink">Logout</button>
+                <button id="logoutButton" class="fakeLink">Logout</button>
             </div>
         </nav>
     `;
 };
+
+document.addEventListener("click", (clickEvent) => {
+  if (clickEvent.target.id === "logoutButton") {
+    localStorage.clear();
+    document
+      .querySelector(".giffygram")
+      .dispatchEvent(new CustomEvent("stateChanged"));
+  }
+});
