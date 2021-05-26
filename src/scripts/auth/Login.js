@@ -1,4 +1,7 @@
 import { getUsers } from "../data/provider.js";
+import { RegisterForm } from "./Register.js";
+
+const applicationElement = document.querySelector(".giffygram");
 
 // Log-In Functionality
 document.addEventListener("click", (clickEvent) => {
@@ -30,7 +33,7 @@ document.addEventListener("click", (clickEvent) => {
     let newUser = 1;
     localStorage.setItem("gg_newUser", newUser);
     document.querySelector(".giffygram");
-    document.dispatchEvent(new CustomEvent("stateChanged"));
+    applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
   }
 });
 

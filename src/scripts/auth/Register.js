@@ -1,4 +1,6 @@
 import { registerNewUser } from "../data/provider.js";
+import { GiffyGram } from "../GiffyGram.js";
+import { LoginForm } from "./Login.js";
 
 const applicationElement = document.querySelector(".giffygram");
 
@@ -24,6 +26,8 @@ applicationElement.addEventListener("click", (clickEvent) => {
       window.alert("Please fill out all fields before registering");
     } else {
       registerNewUser(newUser);
+
+      LoginForm();
       applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
     }
   } else if (clickEvent.target.id === "cancelButton") {
