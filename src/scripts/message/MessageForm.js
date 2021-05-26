@@ -1,4 +1,4 @@
-import { getUsers, fetchUsers } from "../data/provider.js";
+import { getUsers, fetchUsers, sendMessage } from "../data/provider.js";
 
 
 export const MessageForm = () => {
@@ -13,7 +13,7 @@ export const MessageForm = () => {
     html += "Choose a recipient <select id='messageUserSelection'>"
     html += users.map((user) => {
         return `
-            <option id="user--${user.id}">${user.name}</option>
+            <option value="${user.id}" id="user--${user.id}">${user.name}</option>
             `
     }
     )
@@ -21,7 +21,7 @@ export const MessageForm = () => {
     
     html+= "<h3> Message </h3>";
 
-    html+= "<textArea placeholder='Type message here'></textArea>"
+    html+= "<textArea placeholder='Type message here' id='messageField'></textArea>"
 
 
     
@@ -45,12 +45,28 @@ export const MessageForm = () => {
 document.addEventListener("click", (clickEvent) => {
     if (clickEvent.target.id === "sendMessageButton") {
       
-      document
+        const currentUser = parseInt(localStorage.getItem("gg_user"));
+        const messageRecipientId = document.querySelector("#messageUserSelection");
+        const messageRecipientIdNumber = parseInt(messageRecipientId.value);
+        const textMessageField = document.querySelector("#messageField").value;
+        
+        
+        const sendNewMessageToApi = {
+        
+            userId: currentUser,
+            recipientId: messageRecipientIdNumber,
+            text: textMessageField,
+            read: false,
+     
+        };
+         sendMessage(sendNewMessageToApi);
+
+        document
         .querySelector(".giffygram")
         .dispatchEvent(new CustomEvent("stateChanged"));
     }
   });
-   
+
   document.addEventListener("click", (clickEvent) => {
     if (clickEvent.target.id === "abortMessageButton") {
       

@@ -132,6 +132,21 @@ export const sendPost = (userPost) => {
     });
 };
 
+export const sendMessage = (userMessage) => {
+  const fetchOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(userMessage),
+  };
+  return fetch(`${apiURL}/messages`, fetchOptions)
+    .then(response => response.json())
+    .then(() => {
+      applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
+    });
+};
+
 export const registerNewUser = (userObject) => {
   return fetch(`${apiURL}/users`, {
     method: "POST",
