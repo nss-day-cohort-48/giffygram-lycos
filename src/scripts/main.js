@@ -10,6 +10,7 @@ import {
   getPosts,
 } from "./data/provider.js";
 import "./auth/Logout.js";
+import { MessageForm } from "./message/MessageForm.js";
 
 const applicationElement = document.querySelector(".giffygram");
 
@@ -26,6 +27,8 @@ export const renderApp = () => {
         applicationElement.innerHTML = GiffyGram();
       } else {
         applicationElement.innerHTML = LoginForm();
+       // } else {
+      //   applicationElement,innerHTML = MessageForm();
       }
     });
 };
