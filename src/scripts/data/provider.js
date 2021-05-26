@@ -67,7 +67,7 @@ export const getPosts = () => {
       return gifPosts; // if timestamp still at 0, it displays all. Will need to reset to zero somewhere in code later.
     }
   };
-  const filteredByYear = filterByYear(); //This is an array based on the yera filter. Now will filter by user selection.
+  const filteredByYear = filterByYear(); //This is an array based on the year filter. Now will filter by user selection.
   const filterByUser = () => {
     if (applicationState.feed.chosenUser !== null) {
       const userArray = filteredByYear.filter(
