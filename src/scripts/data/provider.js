@@ -67,7 +67,7 @@ export const getPosts = () => {
       return gifPosts; // if timestamp still at 0, it displays all. Will need to reset to zero somewhere in code later.
     }
   };
-  const filteredByYear = filterByYear(); //This is an array based on the yera filter. Now will filter by user selection.
+  const filteredByYear = filterByYear(); //This is an array based on the year filter. Now will filter by user selection.
   const filterByUser = () => {
     if (applicationState.feed.chosenUser !== null) {
       const userArray = filteredByYear.filter(
@@ -78,7 +78,7 @@ export const getPosts = () => {
       return filteredByYear; //if no chosen user, then returning filter by year.
     }
   };
-  setCurrentUser(); //Not sure this is the best placef for this, but definitely need it.
+  // setCurrentUser(); //Not sure this is the best placef for this, but definitely need it.
   const arrayByYearUser = filterByUser(); //filters likes based on current user
   const likes = getLikes();
   const currentUserId = applicationState.currentUser.id;
@@ -163,7 +163,7 @@ export const setCurrentUser = () => {
 export const setChosenUser = (id) => {
   const users = getUsers();
   for (const user of users) {
-    if ((user.id = id)) {
+    if ((user.id === id)) {
       applicationState.feed.chosenUser = user;
       applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
     }

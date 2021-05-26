@@ -6,6 +6,7 @@ import {
   fetchPosts,
   fetchLikes,
   fetchMessages,
+  setCurrentUser
 } from "./data/provider.js";
 import "./auth/Logout.js";
 import "./auth/Register.js";
@@ -23,6 +24,7 @@ export const renderApp = () => {
       console.log("renderApp invoked");
       if (user) {
         applicationElement.innerHTML = GiffyGram();
+        setCurrentUser()
       } else if (newUser) {
         applicationElement.innerHTML = RegisterForm();
       } else {
@@ -31,6 +33,7 @@ export const renderApp = () => {
     });
   console.log("page loaded");
 };
+
 applicationElement.addEventListener("stateChanged", (customEvent) => {
   console.log("state changed, event heard");
   renderApp();
