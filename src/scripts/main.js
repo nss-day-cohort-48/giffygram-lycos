@@ -29,6 +29,8 @@ export const renderApp = () => {
         applicationElement.innerHTML = RegisterForm();
       } else {
         applicationElement.innerHTML = LoginForm();
+       // } else {
+      //   applicationElement,innerHTML = MessageForm();
       }
     });
   console.log("page loaded");
