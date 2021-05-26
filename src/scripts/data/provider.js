@@ -78,7 +78,7 @@ export const getPosts = () => {
       return filteredByYear; //if no chosen user, then returning filter by year.
     }
   };
-  setCurrentUser(); //Not sure this is the best placef for this, but definitely need it.
+  // setCurrentUser(); //Not sure this is the best placef for this, but definitely need it.
   const arrayByYearUser = filterByUser(); //filters likes based on current user
   const likes = getLikes();
   const currentUserId = applicationState.currentUser.id;
@@ -163,7 +163,7 @@ export const setCurrentUser = () => {
 export const setChosenUser = (id) => {
   const users = getUsers();
   for (const user of users) {
-    if ((user.id = id)) {
+    if ((user.id === id)) {
       applicationState.feed.chosenUser = user;
       applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
     }
