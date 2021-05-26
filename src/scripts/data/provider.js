@@ -93,12 +93,12 @@ export const sendPost = (userPost) => {
   return fetch(`${apiURL}/posts`, fetchOptions)
     .then((response) => response.json())
     .then(() => {
-      mainContainer.dispatchEvent(new CustomEvent("stateChanged"));
+      applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
     });
 };
 
 export const registerNewUser = (userObject) => {
-  return fetch(`${apiURL}/users}`, {
+  return fetch(`${apiURL}/users`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -107,7 +107,7 @@ export const registerNewUser = (userObject) => {
   })
     .then((response) => response.json())
     .then(() => {
-      mainContainer.dispatchEvent(new CustomEvent("stateChanged"));
+      applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
     });
 };
 

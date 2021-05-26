@@ -27,6 +27,7 @@ document.addEventListener("click", (clickEvent) => {
 // Register New User Functionality
 document.addEventListener("click", (clickEvent) => {
   if (clickEvent.target.id === "registerNewUser") {
+    let newUser = 1;
     localStorage.setItem("gg_newUser", newUser);
     document.querySelector(".giffygram");
     document.dispatchEvent(new CustomEvent("stateChanged"));
