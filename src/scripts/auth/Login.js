@@ -1,5 +1,6 @@
 import { getUsers } from "../data/provider.js";
 
+// Log-In Functionality
 document.addEventListener("click", (clickEvent) => {
   if (clickEvent.target.id === "loginButton") {
     let foundUser = null;
@@ -23,8 +24,19 @@ document.addEventListener("click", (clickEvent) => {
   }
 });
 
+// Register New User Functionality
+document.addEventListener("click", (clickEvent) => {
+  if (clickEvent.target.id === "registerNewUser") {
+    let newUser = 1;
+    localStorage.setItem("gg_newUser", newUser);
+    document.querySelector(".giffygram");
+    document.dispatchEvent(new CustomEvent("stateChanged"));
+  }
+});
+
+// Log-In Form
 export const LoginForm = () => {
-  return `
+  return /*html*/ `
         <div class="loginForm">
             <form>
                 <fieldset>
@@ -37,8 +49,7 @@ export const LoginForm = () => {
                 </fieldset>
             </form>
             <button id="loginButton">Login</button>
+            <button id="registerNewUser">New User</button>
         </div>
     `;
 };
-
-// Logout Functionality
