@@ -1,41 +1,41 @@
 import { GiffyGram } from "./GiffyGram.js";
 import { LoginForm } from "./auth/Login.js";
-import { NavBar } from "./nav/NavBar.js";
+import { RegisterForm } from "./auth/Register.js";
 import {
   fetchUsers,
   fetchPosts,
   fetchLikes,
   fetchMessages,
-  getUsers,
-  getPosts,
 } from "./data/provider.js";
 import "./auth/Logout.js";
-import { MessageForm } from "./message/MessageForm.js";
+import "./auth/Register.js";
 
 const applicationElement = document.querySelector(".giffygram");
 
 export const renderApp = () => {
+  const user = parseInt(localStorage.getItem("gg_user"));
+  const newUser = parseInt(localStorage.getItem("gg_newUser"));
   fetchUsers()
     .then(fetchPosts)
     .then(fetchLikes)
     .then(fetchMessages)
     .then(() => {
-      let users = getUsers();
-      const user = parseInt(localStorage.getItem("gg_user"));
       console.log("renderApp invoked");
       if (user) {
         applicationElement.innerHTML = GiffyGram();
+      } else if (newUser) {
+        applicationElement.innerHTML = RegisterForm();
       } else {
         applicationElement.innerHTML = LoginForm();
        // } else {
       //   applicationElement,innerHTML = MessageForm();
       }
     });
+  console.log("page loaded");
 };
-console.log("page loaded");
-renderApp();
-
 applicationElement.addEventListener("stateChanged", (customEvent) => {
-  //console.log("state changed, event heard");
+  console.log("state changed, event heard");
   renderApp();
 });
+
+renderApp();

@@ -1,16 +1,17 @@
-import { getUsers, getLikes, fetchLikes, fetchUsers, setChosenUser, filterByYear, makeApplicationStatePosts, setChosenYear } from "../data/provider.js";
-// import { getCurrentUser  } from "./data/provider.js";
+import { getUsers, setChosenUser, setChosenYear, filterFavs } from "../data/provider.js";
 
 
 //Jan 1 timestamps for each year from https://www.unixtimestamp.com/index.php
+//Listens for timestamp. 
 
 document.addEventListener(
     "change",
     (event) => {
         if (event.target.id === "yearSelection") {
-            if (event.target.value === "2021") {
+            if (event.target.value === "allYears") {
+                setChosenYear(1)
+            } else if (event.target.value === "2021") {
                 setChosenYear(1609480800)
-                // makeApplicationStatePosts(filterByYear(1609480800))
             } else if (event.target.value === "2020") {
                 setChosenYear(1577858400)
             } else if (event.target.value === "2019") {
@@ -19,15 +20,13 @@ document.addEventListener(
                 setChosenYear(1514786400)
             } else if (event.target.value === "2017") {
                 setChosenYear(1483250400)
-            } else {
-                setChosenYear(0)
             }
         }
     }
 )
 
 const yearsDropdown = () => {
-  return `
+    return `
     <div class="footer__item">
     Post since <select id="yearSelection">
     <option name="yearSelection" value="allYears">Display All</option>
@@ -41,11 +40,14 @@ const yearsDropdown = () => {
     `;
 };
 
+
+//This is from the Posts by User fliter. 
+
 document.addEventListener(
     "change",
     (event) => {
         const users = getUsers()
-        if (event.target.name === "selectedUser") {
+        if (event.target.id === "userSelection") {
             const [, selectedUserId] = event.target.value.split("--")
             setChosenUser(parseInt(selectedUserId))
         }
@@ -58,8 +60,8 @@ const UserDropDown = () => {
     html += "Posts by user <select id='userSelection'>"
     html += users.map((user) => {
         return `
-            <option name="selectedUser" value="user--${user.id}">${user.name}</option>
-            `
+        <option name="selectedUser" value="user--${user.id}">${user.name}</option>
+        `
     }
     )
     html += "</select>"
@@ -67,40 +69,35 @@ const UserDropDown = () => {
     return html
 }
 
-// const filterByAuthor = (authorId) => {
+//This is for the likes checkbox
 
-// }
-
-//need to figure out this is made specific to the User that is logged in.
-const filterFavorites = () => {
-  let likedPosts = [];
-  const currentUserId = localStorage.getItem("gg_user");
-  console.log(currentUserId);
-  const likes = getLikes();
-  for (const like of likes) {
-    if ((like.userId = currentUserId)) {
-      likedPosts.push(like);
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.id === "likesCheckbox") {
+            filterFavs(event.target.checked)
+        }
     }
-  }
-  return likedPosts;
-};
+)
+
 
 const likesCheckbox = () => {
-  return `
+    return `
 <div class="footer__item likes__checkbox">
 <label for="likesCheckbox">Show only favorites:</label>
 <input type="checkbox" id="likesCheckbox">
 </div> 
 `;
 };
-//somehwere else we need a function that will display all posts that are in the likedPosts array.
+
+//This is all of the three filters put together.
 
 export const Footer = () => {
-  let html = yearsDropdown();
+    let html = yearsDropdown();
 
-  html += UserDropDown();
+    html += UserDropDown();
 
-  html += likesCheckbox();
+    html += likesCheckbox();
 
-  return html;
+    return html;
 };
